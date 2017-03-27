@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {DataTable, SortEvent} from "./DataTable";
+import {Component, Input, OnInit} from '@angular/core';
+import {DataTable, SortEvent} from './DataTable';
 
 @Component({
-    selector: "mfDefaultSorter",
+    // tslint:disable-next-line:component-selector
+    selector: 'mfDefaultSorter',
     template: `
         <a style="cursor: pointer" (click)="sort()" class="text-nowrap">
             <ng-content></ng-content>
@@ -10,27 +11,29 @@ import {DataTable, SortEvent} from "./DataTable";
             <span *ngIf="isSortedByMeDesc" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
         </a>`
 })
+// tslint:disable-next-line:component-class-suffix
 export class DefaultSorter implements OnInit {
-    @Input("by") sortBy: string;
+    // tslint:disable-next-line:no-input-rename
+    @Input('by') sortBy: string;
 
-    isSortedByMeAsc: boolean = false;
-    isSortedByMeDesc: boolean = false;
+    isSortedByMeAsc = false;
+    isSortedByMeDesc = false;
 
     public constructor(private mfTable: DataTable) {
     }
 
     public ngOnInit(): void {
         this.mfTable.onSortChange.subscribe((event: SortEvent) => {
-            this.isSortedByMeAsc = (event.sortBy == this.sortBy && event.sortOrder == "asc");
-            this.isSortedByMeDesc = (event.sortBy == this.sortBy && event.sortOrder == "desc");
+            this.isSortedByMeAsc = (event.sortBy === this.sortBy && event.sortOrder === 'asc');
+            this.isSortedByMeDesc = (event.sortBy === this.sortBy && event.sortOrder === 'desc');
         });
     }
 
     sort() {
         if (this.isSortedByMeAsc) {
-            this.mfTable.setSort(this.sortBy, "desc");
+            this.mfTable.setSort(this.sortBy, 'desc');
         } else {
-            this.mfTable.setSort(this.sortBy, "asc");
+            this.mfTable.setSort(this.sortBy, 'asc');
         }
     }
 }

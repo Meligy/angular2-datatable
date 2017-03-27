@@ -6,3 +6,5 @@ node_modules
 /src/typings/
 /coverage/
 /aot
+
+.vscode/symbols.json
