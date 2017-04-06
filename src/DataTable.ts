@@ -46,7 +46,7 @@ export class DataTable implements OnChanges, DoCheck {
     public data: any[];
 
     public onSortChange = new ReplaySubject<SortEvent>(1);
-    public onPageChange = new EventEmitter<PageEvent>();
+    @Output('mfPageChange') public onPageChange = new EventEmitter<PageEvent>();
 
     public constructor(private differs: IterableDiffers) {
         this.diff = differs.find([]).create(null);
