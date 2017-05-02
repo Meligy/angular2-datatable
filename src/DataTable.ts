@@ -2,7 +2,8 @@ import {
     Directive, Input, EventEmitter, SimpleChange, OnChanges, DoCheck, IterableDiffers,
     IterableDiffer, Output
 } from '@angular/core';
-import * as _ from 'lodash';
+import { includes, orderBy, slice } from 'lodash';
+const _ = { includes, orderBy, slice };
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
 export interface SortEvent {
