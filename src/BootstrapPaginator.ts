@@ -1,6 +1,7 @@
 import {Component, Input, OnChanges} from '@angular/core';
 import {DataTable} from './DataTable';
-import * as _ from 'lodash';
+import { min } from 'lodash';
+const _ = { min };
 
 @Component({
     // tslint:disable-next-line:component-selector
