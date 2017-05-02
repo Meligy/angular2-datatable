@@ -1,9 +1,10 @@
-///<reference path="../node_modules/@types/jasmine/index.d.ts"/>
+///<reference path="../../../node_modules/@types/jasmine/index.d.ts"/>
 import {SimpleChange, Component} from '@angular/core';
 import {DataTable, PageEvent, SortEvent} from './DataTable';
 import {TestBed, ComponentFixture} from '@angular/core/testing';
 import {By} from '@angular/platform-browser';
-import * as _ from 'lodash';
+import { times } from 'lodash';
+const _ = { times };
 
 @Component({
     template: `<table [mfData]="[]"></table>`
